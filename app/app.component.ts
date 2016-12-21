@@ -1,7 +1,28 @@
 import { Component } from '@angular/core';
 
+import { UserModel } from './models/user.model';
+import { UserService } from './services/user.service';
+
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  templateUrl: './app/app.component.html'
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent {
+
+  private _user: UserModel;
+
+  constructor(
+    private _userService: UserService
+  ) {
+    this.user = this._userService.getUser();
+  }
+
+  set user(val: UserModel) {
+    this._user = val;
+  }
+
+  get user() {
+    return this._user;
+  }
+
+}

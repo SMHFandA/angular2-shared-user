@@ -1,0 +1,7 @@
+<div class="app" style="padding: 20px; border: 1px solid red">
+  <div>AppComponent user is: {{ user | json }}</div>
+
+  <header-component [user]="user"></header-component>
+
+  <content-component [user]="user"></content-component>
+</div>
