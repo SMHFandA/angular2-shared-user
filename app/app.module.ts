@@ -16,7 +16,7 @@ import { UserService } from './services/user.service';
   ],
   providers: [
     UserService
-  ]
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

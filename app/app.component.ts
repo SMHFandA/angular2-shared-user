@@ -9,12 +9,17 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
 
-  private _user: UserModel;
+  private _user: UserModel = new UserModel('', '', 0);
 
   constructor(
     private _userService: UserService
   ) {
-    this.user = this._userService.getUser();
+    this._userService
+      .getUser()
+      .subscribe(
+        res => this.user = res
+      )
+    ;
   }
 
   set user(val: UserModel) {

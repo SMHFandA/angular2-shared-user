@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { UserModel } from '../models/user.model';
 
@@ -15,8 +16,12 @@ export class UserService {
     return this._user;
   }
 
-  getUser() {
-    return this.user;
+  getUser(): Observable<UserModel> {
+    return new Observable((observer: any) => {
+      setTimeout(() => {
+        observer.next(this.user);
+      }, 4000);
+    });
   }
 
 }
